@@ -63,35 +63,35 @@ test('captain and ship combined for given captain id', async () => {
 xtest('Captains sorted by ship size', async () => {
   const expectedData = [
     {
-      id: "KZUC8",
-      first: "Han",
-      last: "Solo",
+      id: 'KZUC8',
+      first: 'Han',
+      last: 'Solo',
       age: 33,
-      ship: "Millenium Falcon"
+      ship: 'Millenium Falcon'
     },
     {
-      id: "R6TZN",
-      first: "Malcolm",
-      last: "Reynolds",
+      id: 'R6TZN',
+      first: 'Malcolm',
+      last: 'Reynolds',
       age: 34,
-      ship: "Serenity"
+      ship: 'Serenity'
     },
     {
-      id: "SQ2WI",
-      first: "Jack",
-      last: "Sparrow",
+      id: 'SQ2WI',
+      first: 'Jack',
+      last: 'Sparrow',
       age: 48,
-      ship: "Black Pearl"
+      ship: 'Black Pearl'
     },
     {
-      id: "UXWPK",
-      first: "Jean Luc",
-      last: "Picard",
+      id: 'UXWPK',
+      first: 'Jean Luc',
+      last: 'Picard',
       age: 64,
-      ship: "USS Enterprise NCC-1701-D"
+      ship: 'USS Enterprise NCC-1701-D'
     }
-  ]
-  const captainsWithShipNamesBySize = await apiHelpers.captainsWithShipNamesBySize()
+  ];
+  const captainsWithShipNamesBySize = await apiHelpers.captainsWithShipNamesBySize();
 
   expect(captainsWithShipNamesBySize).toEqual(expectedData);
 });
