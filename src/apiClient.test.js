@@ -9,6 +9,7 @@ test('api/captains endpoint works', async () => {
     const response = await apiClient.get('/captains');
     expect(response.status).toBe(200);
     expect(response.data).toHaveLength(4);
+    console.log(response.data);
   } catch (error) {
     console.log('Be sure you have started the mock api: npm run api');
     expect(true).toBe(false);
@@ -20,6 +21,7 @@ test('api/ships endpoint works', async () => {
     const response = await apiClient.get('/ships');
     expect(response.status).toBe(200);
     expect(response.data).toHaveLength(4);
+    console.log(response.data);
   } catch (error) {
     console.log('Be sure you have started the mock api: npm run api');
     expect(true).toBe(false);
