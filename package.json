@@ -8,6 +8,7 @@
     "api": "json-server ./api/db.json"
   },
   "jest": {
+    "testEnvironment": "node",
     "reporters": [
       "default"
     ],
