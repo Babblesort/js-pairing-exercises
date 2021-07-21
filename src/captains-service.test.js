@@ -1,7 +1,7 @@
-import * as apiHelpers from './apiHelpers';
+import * as captainsService from './captains-service';
 
 test('returns data from captains endpoint', async () => {
-  const captains = await apiHelpers.getCaptains();
+  const captains = await captainsService.getCaptains();
   const firstCaptain = {
     id: 'SQ2WI',
     first: 'Jack',
@@ -16,35 +16,23 @@ test('returns data from captains endpoint', async () => {
 
 xtest('captain first names', async () => {
   const expectedNames = ['Jack', 'Malcolm', 'Jean Luc', 'Han'];
-  const firstNames = await apiHelpers.firstNames();
+  const firstNames = await captainsService.firstNames();
 
   expect(firstNames).toEqual(expectedNames);
 });
 
 xtest('captain first names sorted alphabetically', async () => {
   const expectedNames = ['Han', 'Jack', 'Jean Luc', 'Malcolm'];
-  const firstNamesSorted = await apiHelpers.firstNamesSorted();
+  const firstNamesSorted = await captainsService.firstNamesSorted();
 
   expect(firstNamesSorted).toEqual(expectedNames);
 });
 
 xtest('captain combined total age', async () => {
   const expectedTotalAge = 179;
-  const totalAge = await apiHelpers.totalAge();
+  const totalAge = await captainsService.totalAge();
 
   expect(totalAge).toEqual(expectedTotalAge);
-});
-
-xtest('captain full names sorted by age ascending', async () => {
-  const expectedNames = [
-    'Han Solo',
-    'Malcolm Reynolds',
-    'Jack Sparrow',
-    'Jean Luc Picard'
-  ];
-  const fullNamesByAge = await apiHelpers.fullNamesByAge();
-
-  expect(fullNamesByAge).toEqual(expectedNames);
 });
 
 xtest('captain and ship combined for given captain id', async () => {
@@ -55,7 +43,7 @@ xtest('captain and ship combined for given captain id', async () => {
     shipId: 'V7B8T',
     shipName: 'Serenity'
   };
-  const captainShipData = await apiHelpers.captainBio('R6TZN');
+  const captainShipData = await captainsService.captainBio('R6TZN');
 
   expect(captainShipData).toEqual(expectedData);
 });
@@ -91,7 +79,7 @@ xtest('Captains sorted by ship size', async () => {
       ship: 'USS Enterprise NCC-1701-D'
     }
   ];
-  const captainsWithShipNamesBySize = await apiHelpers.captainsWithShipNamesBySize();
+  const captainsWithShipNamesBySize = await captainsService.captainsWithShipNamesBySize();
 
   expect(captainsWithShipNamesBySize).toEqual(expectedData);
 });
