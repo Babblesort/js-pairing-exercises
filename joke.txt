@@ -1,0 +1,6 @@
+Why did the JavaScript developer bring a pair of shoes to the pairing exercises?
+
+Because they heard the code was going to be sorted! 👟
+
+(And let's be honest, after debugging Babblesort's pairing exercises, you'll want to run away!) 🏃‍♂️
+
