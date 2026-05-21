@@ -1,7 +1,7 @@
 import apiClient from './apiClient';
 
 test('apiClient is configured to point to api', () => {
-  expect(apiClient.defaults.baseURL).toBe('http://localhost:5000/api');
+  expect(apiClient.defaults.baseURL).toBe('http://localhost:4000');
 });
 
 test('api/captains endpoint works', async () => {

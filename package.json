@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --watch --verbose",
-    "api": "json-server ./api/db.json"
+    "api": "json-server --port 4000 ./api/db.json"
   },
   "jest": {
     "testEnvironment": "node",
@@ -20,21 +20,21 @@
   "author": "Paul McConnell",
   "license": "MIT",
   "devDependencies": {
-    "@babel/preset-env": "^7.7.1",
-    "babel-cli": "^6.26.0",
-    "eslint": "^5.16.0",
-    "eslint-config-airbnb": "^17.1.1",
-    "eslint-config-prettier": "^4.3.0",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-jest": "^22.21.0",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.16.0",
-    "jest": "^24.9.0",
-    "jest-watch-typeahead": "^0.4.0",
-    "prettier": "^1.18.2"
+    "@babel/preset-env": "^7.29.5",
+    "eslint": "^8.57.1",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^9.1.2",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-jest": "^29.15.2",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "jest": "^30.4.2",
+    "jest-watch-typeahead": "^3.0.1",
+    "prettier": "^3.8.3"
   },
   "dependencies": {
-    "axios": "^0.21.2",
-    "json-server": "^0.15.1"
+    "axios": "^1.9.0",
+    "json-server": "^1.0.0-beta.15"
   }
 }
