@@ -83,3 +83,39 @@ xtest('Captains sorted by ship size', async () => {
 
   expect(captainsWithShipNamesBySize).toEqual(expectedData);
 });
+
+xtest('captains within age range with ship statistics', async () => {
+  const expectedData = {
+    captains: [
+      {
+        id: 'KZUC8',
+        first: 'Han',
+        last: 'Solo',
+        age: 33,
+        shipName: 'Millenium Falcon',
+        crewCount: 2
+      },
+      {
+        id: 'R6TZN',
+        first: 'Malcolm',
+        last: 'Reynolds',
+        age: 34,
+        shipName: 'Serenity',
+        crewCount: 5
+      },
+      {
+        id: 'SQ2WI',
+        first: 'Jack',
+        last: 'Sparrow',
+        age: 48,
+        shipName: 'Black Pearl',
+        crewCount: 44
+      }
+    ],
+    averageCrewCount: 17,
+    totalCrewCount: 51
+  };
+  const captainStats = await captainsService.captainsWithinAgeRangeWithShipStats(30, 50);
+
+  expect(captainStats).toEqual(expectedData);
+});
