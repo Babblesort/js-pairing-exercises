@@ -1,19 +1,49 @@
 # js-pairing-exercises
 
-This is a JavaScript learning project focused on working through pairing exercises. The application provides a mock API with data about fictional ship captains and their vessels, and includes exercises that require reading from the API and implementing functions to sort, transform, and merge the data to meet test specifications.
+A JavaScript pairing exercise repo. It provides a mock JSON API (served by `json-server`) and a set of progressively-complex Jest tests that the learner must make pass by implementing helper functions.
 
-The project includes a mock API server (`json-server` pointing to `api/db.json`) and a test suite using Jest. Exercises are focused on implementing helper functions in `captains-service.js` that fetch and process data from the API endpoints.
+## Repository layout
 
-## Project structure
+```
+.
+├── api/
+│   └── db.json               # Mock data: 4 captains + 4 ships
+├── src/
+│   ├── apiClient.js          # Thin axios wrapper; baseURL = http://localhost:4000
+│   ├── apiClient.test.js     # Fully active — verifies the API client config and both endpoints
+│   ├── captains-service.js   # Stub service file (only getCaptains stub exists)
+│   └── captains-service.test.js  # Progressive test suite (see below)
+├── package.json              # Jest + json-server + axios
+└── .babelrc                  # @babel/preset-env targeting current Node
+```
 
-- `src/apiClient.js`: Thin wrapper around axios configured to connect to the mock API
-- `src/apiClient.test.js`: Tests verifying the API client and endpoints are working
-- `src/captains-service.js`: Service module containing helper functions to be implemented
-- `src/captains-service.test.js`: Test suite for the service functions (some tests are skipped by default)
-- `api/db.json`: Mock API database containing captains and ships data
+## Mock API data
 
-## Documentation
+**Captains** (`/captains`): Jack Sparrow (age 48, ship BC13V), Malcolm Reynolds (age 34, ship V7B8T), Jean Luc Picard (age 64, ship DRPHT), Han Solo (age 33, ship 1M6GB).
 
-- [Coding standards](coding-standards.md): The conventions the code follows
-- [Architecture decisions](architecture-decisions.md): How the application is built
-- [Known issues](known-issues.md): Known problems, limitations, and skipped tests
+**Ships** (`/ships`): USS Enterprise NCC-1701-D (DRPHT, 1012 crew, Warp Drive), Black Pearl (BC13V, 44 crew, Wind), Millenium Falcon (1M6GB, 2 crew, Hyperdrive), Serenity (V7B8T, 5 crew, Radion/Accelerator Core).
+
+## Test complexity ramp (`captains-service.test.js`)
+
+| # | Status | Function | Skill introduced |
+|---|--------|----------|-----------------|
+| 1 | active | `getCaptains()` | Raw GET from one endpoint |
+| 2 | xtest  | `firstNames()` | Array map |
+| 3 | xtest  | `firstNamesSorted()` | Map + sort |
+| 4 | xtest  | `totalAge()` | Map + reduce |
+| 5 | xtest  | `captainBio(id)` | Cross-join two endpoints for one record |
+| 6 | xtest  | `captainsWithShipNamesBySize()` | Cross-join all records + sort by derived field (crewCount) |
+
+## Scripts
+
+| Command | Purpose |
+|---------|---------|
+| `npm run api` | Start mock API on port 4000 |
+| `npm test` | Run Jest in watch mode |
+| `npm run api:stop` | Kill the mock API server |
+
+## Coding conventions
+
+- ES modules (`import`/`export`) transpiled by Babel.
+- Jest test framework; tests named `test`/`xtest` (no `describe` blocks).
+- ESLint with `airbnb` + `prettier` config.
