@@ -14,12 +14,16 @@ To enable these tests during development, remove the `x` prefix from `xtest` to 
 
 ## Incomplete implementations
 
-The following function in `src/captains-service.js` is not yet implemented:
+The following functions in `src/captains-service.js` are not yet implemented:
 
 - `getCaptains()` (line 3): Currently returns `null`; should fetch and return captains from the API
 
-No TODO or FIXME comments were found in the source code.
+Stub exports for unimplemented exercise functions (`firstNames`, `firstNamesSorted`, `totalAge`, `captainBio`, `captainsWithShipNamesBySize`, `captainsByPropulsion`) are expected to be added alongside their corresponding `xtest` blocks.
+
+No TODO or FIXME comments are present in the source code.
 
 ## Notable limits
 
 The mock API is static and serves only the four captains and four ships defined in `api/db.json`. The API must be running separately (via `npm run api`) for tests to pass; the test suite does not start it automatically.
+
+`npm run api` starts `json-server` in watch/server mode and never exits on its own — running it directly in a CI step will time out. Use a background process or a separate terminal.
